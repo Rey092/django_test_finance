@@ -39,6 +39,9 @@ worker-info:
 # ##########################################################################
 # Uncommon commands
 
+s-user:
+	$(MANAGE) createsuperuser
+
 install:
 	pip install -r requirements.txt
 
