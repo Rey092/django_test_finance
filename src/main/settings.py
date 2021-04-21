@@ -136,8 +136,16 @@ CELERY_TASK_TRACK_STARTED = True
 CELERY_TASK_TIME_LIMIT = 30 * 60
 
 CELERY_BEAT_SCHEDULE = {
-    'delete_logs_async': {
-        'task': 'currency.tasks.parse_privatbank',
-        'schedule': crontab(minute='*/6'),
+    'parse_monobank': {
+        'task': 'currency.tasks.parse_monobank',
+        'schedule': crontab(minute='*/17'),
+    },
+    'parse_vkurse': {
+        'task': 'currency.tasks.parse_vkurse',
+        'schedule': crontab(minute='*/17'),
+    },
+    'parse_yahoo': {
+        'task': 'currency.tasks.parse_yahoo',
+        'schedule': crontab(minute='*/17'),
     },
 }
